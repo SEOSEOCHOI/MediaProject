@@ -7,25 +7,22 @@
 
 import UIKit
 
-class TVTableViewCell: UITableViewCell {
+class TVTableViewCell: BaseTableViewCell {
     let titleLable = BlackTextLabel()
-    
     let tvCollectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureHierarchy()
-        configureConstraints()
-        configureView()
+
     }
     
-    func configureHierarchy() {
+    override func configureHierarchy() {
         contentView.addSubview(titleLable)
         contentView.addSubview(tvCollectionView)
     }
     
-    func configureConstraints() {
+    override func configureConstraints() {
         titleLable.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(contentView).inset(20)
             make.height.equalTo(20)
@@ -36,7 +33,7 @@ class TVTableViewCell: UITableViewCell {
         }
     }
     
-    func configureView() {
+    override func configureView() {
         contentView.backgroundColor = .white
     }
     

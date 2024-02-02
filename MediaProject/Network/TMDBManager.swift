@@ -10,57 +10,26 @@ import Alamofire
 
 class TMDBManager {
     static let shared = TMDBManager()
-    
-    let baseURL = "https://api.themoviedb.org/3/"
-    let header: HTTPHeaders = ["Authorization":APIKey.tmdb]
-}
-
-extension TMDBManager {
-    func fetchTrendingTV(completionHandler: @escaping ([Trending]) -> Void) {
-        let url = baseURL + "trending/tv/day?language=ko-KR"
-        
-        AF.request(url, headers: header).responseDecodable(of: TrendingModel.self) { response in
-            switch response.result {
-            case .success(let success):
-
-                completionHandler(success.trending)
-            case .failure(let failure):
-                print(failure)
-            }
-        }
-    }
-    
-    func fetchPopularTV(completionHandler: @escaping ([Popular]) -> Void) {
-        let url = baseURL + "tv/popular?language=ko-KR"
-        
-        AF.request(url, headers: header).responseDecodable(of: PopularModel.self) { response in
-            switch response.result {
-            case .success(let success):
-                completionHandler(success.popular)
-            case .failure(let failure):
-                print(failure)
-            }
-        }
-    }
-    
-    func fetchTopRatedTV(completionHandler: @escaping ([TopRated]) -> Void) {
-        let url = baseURL + "tv/top_rated?language=ko-KR"
-        
-        AF.request(url, headers: header).responseDecodable(of: TopRatedModel.self) { response in
+    func fetchTVShow(api: TMDBAPI,completionHandler: @escaping (TVShowModel) -> Void) {
+        AF.request(api.endPoint,
+                   method: api.method,
+                   parameters: api.parameters,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: TVShowModel.self) { response in
             switch response.result {
             case .success(let success):
                 
-                completionHandler(success.topRated)
+                completionHandler(success)
             case .failure(let failure):
                 print(failure)
             }
         }
     }
     
-    func fetchTVImages(id: Int, completionHandler: @escaping (PosterModel) -> Void) {
-        let url = "https://api.themoviedb.org/3/tv/\(id)/images"
-        let header: HTTPHeaders = ["Authorization":APIKey.tmdb]
-        AF.request(url, headers: header).responseDecodable(of: PosterModel.self) { response in
+    func fetchTVImages(api: TMDBAPI, completionHandler: @escaping (PosterModel) -> Void) {
+        AF.request(api.endPoint,
+                   method: api.method,
+                   headers: api.header).responseDecodable(of: PosterModel.self) { response in
             switch response.result {
             case .success(let success):
                 completionHandler(success)
@@ -69,11 +38,16 @@ extension TMDBManager {
             }
         }
     }
+    
 }
+
 extension TMDBManager {
-    func fetchDetails(id: Int, completionHandler: @escaping (DetailsModel) -> Void) {
-        let url = baseURL + "tv/\(id)?language=ko-KR"
-        AF.request(url, headers: header).responseDecodable(of: DetailsModel.self) { response in
+    func fetchDetails(api: TMDBAPI, completionHandler: @escaping (DetailsModel) -> Void) {
+        AF.request(api.endPoint,
+                   method: api.method,
+                   parameters: api.parameters,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: DetailsModel.self) { response in
             switch response.result {
             case .success(let success): 
                 completionHandler(success)
@@ -83,9 +57,12 @@ extension TMDBManager {
         }
     }
     
-    func fetchRecommand(id: Int, completionHandler: @escaping ([Recommand]) -> Void) {
-        let url = baseURL + "tv/\(id)/recommendations?language=ko-KR"
-        AF.request(url, headers: header).responseDecodable(of: RecommandModel.self) { response in
+    func fetchRecommand(api: TMDBAPI, completionHandler: @escaping ([Recommand]) -> Void) {
+        AF.request(api.endPoint,
+                   method: api.method,
+                   parameters: api.parameters,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: RecommandModel.self) { response in
             switch response.result {
             case .success(let success):
                 completionHandler(success.results)
@@ -94,22 +71,27 @@ extension TMDBManager {
             }
         }
     }
-    func fetchCredit(id: Int, completionHandler:
-                     // 왜 배열로 접근이 안되지 CreditModel?
-                     @escaping (CreditModel?) -> Void) {
-        let url = baseURL + "tv/\(id)/aggregate_credits?language=ko-KR"
-        AF.request(url, headers: header).responseDecodable(of: CreditModel.self) { response in
+    func fetchCredit(api: TMDBAPI, completionHandler:
+                     @escaping (CreditModel) -> Void) {
+        AF.request(api.endPoint,
+                   method: api.method,
+                   parameters: api.parameters,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: CreditModel.self) { response in
             switch response.result {
             case .success(let success):
-                completionHandler(success)
+                completionHandler(success.self)
             case .failure(let failure):
                 print("failure", failure)
             }
         }
     }
-    func fetchSearch(query: String, completionHandler: @escaping ([Search]) -> Void) {
-        let url = baseURL + "search/tv?query=\(query)"
-        AF.request(url, headers: header).responseDecodable(of: SearchModel.self) { response in
+    func fetchSearch(api: TMDBAPI, completionHandler: @escaping ([Search]) -> Void) {
+        AF.request(api.endPoint,
+                   method: api.method,
+                   parameters: api.parameters,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: SearchModel.self) { response in
             switch response.result {
             case .success(let success):
                 completionHandler(success.results)

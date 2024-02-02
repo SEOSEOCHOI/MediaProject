@@ -1,20 +1,21 @@
 //
-//  PopularModel.swift
+//  TopRatedModel.swift
 //  MediaProject
 //
 //  Created by 최서경 on 1/30/24.
 //
 
 import Foundation
-struct PopularModel: Decodable {
-    let popular: [Popular]
- 
+// Popular, Trending, TopRated, Recommand
+struct TVShowModel: Decodable {
+    let tvShow: [TVShow]
+    
     enum CodingKeys: String, CodingKey {
-        case popular = "results"
+        case tvShow = "results"
     }
 }
 
-struct Popular: Decodable{
+struct TVShow: Codable{
     let id: Int
     let name: String
     let original_name: String

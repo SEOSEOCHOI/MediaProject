@@ -9,8 +9,11 @@ import UIKit
 
 class DetailTableViewCell: BaseTableViewCell {
     let titleLable = BlackTextLabel()
+    let posterImageView = UIImageView()
+    let creditImageView = UIImageView()
+    
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -31,23 +34,24 @@ class DetailTableViewCell: BaseTableViewCell {
             make.horizontalEdges.bottom.equalTo(contentView)
         }
     }
+    override func configureView() {
+        backgroundColor = .green
+        collectionView.backgroundColor = .blue
+        titleLable.backgroundColor = .red
+    }
     
     static func configureCollectionViewLayout() -> UICollectionViewLayout{
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 160)
+        layout.itemSize = CGSize(width: 120, height: 210)
         layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
+        layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .horizontal
         
         return layout
     }
     
-    override func configureView() {
-        backgroundColor = .green
-        collectionView.backgroundColor = .blue
-        titleLable.backgroundColor = .red
-    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

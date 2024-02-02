@@ -7,8 +7,9 @@
 
 import Foundation
 struct CreditModel: Decodable {
+    // cast + crew
     let cast: [Credit]
-        let crew: [Credit]
+    let crew: [Credit]
 
 }
 

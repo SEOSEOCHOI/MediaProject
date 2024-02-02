@@ -10,131 +10,95 @@ import SnapKit
 import Kingfisher
 
 class DetailViewController: BaseViewController {
-    lazy var detailTableView: UITableView = {
-        let view = UITableView()
-        view.delegate = self
-        view.dataSource = self
-        view.register(DetailTableViewCell.self, forCellReuseIdentifier: DetailTableViewCell.identifier)
-        return view
-    }()
-
-    let detailView = UIView()
-    let tvShowNameLabel = TitleTextLabel()
-    let tvShowOriginalNamelabel = SubTitleLabel()
-    let explainLabel = ExplainLabel()
-    let backdropView = BackdropView()
-    let posterImageView = PosterImageView(frame: .zero)
+    let mainView = DetailVeiw()
+    override func loadView() {
+        self.view = mainView
+    }
     
     lazy var findId: Int = 0
     var detailData: [DetailsModel] = []
     var recommeandList: [Recommand] = []
-    var creditList: [CreditModel] = []
+    var castList: [Credit] = []
+    var crewList: [Credit] = []
+
+    var titleList: [String] = ["Cast", "Crew", "Recommand"]
     
     let baseURL = "https://image.tmdb.org/t/p/original/"
 
+    let collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: TVTableViewCell.configureCollectionViewLayout())
+        view.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
+        fetchData()
+        print("viewdidload", detailData)
+        //configureView로 빼기
+        mainView.detailTableView.dataSource = self
+        mainView.detailTableView.delegate = self
+
+    }
+    // 📖: 내일 가서 적절한 방법(시점)인지 물어보기
+    // 📖: 통신을 통해 데이터를 얻어서 view를 구성하면... view 파일로 뺄 수 없는지 생각해 보기
+    override func configureView() {
+        if !detailData.isEmpty {
+            let data = detailData[0]
+            
+            let posterURL = URL(string: baseURL + (data.poster_path ?? ""))
+            let backdropURL = URL(string: baseURL + data.backdrop_path)
+    
+            mainView.backdropView.backdropImageView.kf.setImage(with: posterURL, placeholder: UIImage(systemName: "Star"))
+            mainView.posterImageView.kf.setImage(with: backdropURL, placeholder: UIImage(systemName: "Star"))
+            mainView.tvShowNameLabel.text = data.name
+            mainView.tvShowOriginalNamelabel.text = data.original_name
+            mainView.explainLabel.text = data.overview
+        }
+    }
+    
+    func fetchData() {
         let group = DispatchGroup()
         
         group.enter()
-        TMDBManager.shared.fetchDetails(id: findId) { result in
-            self.detailData.append(result)
+        TMDBManager.shared.fetchDetails(api: .detail(id: findId), completionHandler: { detail in
+            self.detailData.append(detail)
             group.leave()
-        }
+        })
         
         group.enter()
-        TMDBManager.shared.fetchRecommand(id: findId) { reuslt in
-            self.recommeandList = reuslt
+        TMDBManager.shared.fetchRecommand(api: .recommand(id: findId), completionHandler: { detail in
+            self.recommeandList = detail
             group.leave()
-        }
+        })
         
         group.enter()
-        TMDBManager.shared.fetchCredit(id: findId) { result in
-            if let list = result {
-                self.creditList.append(list)
-            }
+        TMDBManager.shared.fetchCredit(api: .credit(id: findId), completionHandler: { detail in
+            self.castList = detail.cast
+            self.crewList = detail.crew
+                
             group.leave()
-        }
-        
+        })
         group.notify(queue: .main) {
-            self.detailData = self.detailData
-            
-        }
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        configureView()
-    }
-    override func configureHierarchy() {
-        view.addSubview(detailView)
-        detailView.addSubview(backdropView)
-        detailView.addSubview(posterImageView)
-        detailView.addSubview(tvShowNameLabel)
-        detailView.addSubview(tvShowOriginalNamelabel)
-        detailView.addSubview(explainLabel)
-        view.addSubview(detailTableView)
-    }
-    override func configureLayout() {
-        detailView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(detailView.snp.width).dividedBy(2)
-        }
-        detailTableView.snp.makeConstraints { make in
-            make.top.equalTo(detailView.snp.bottom)
-            make.bottom.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-        }
-        backdropView.snp.makeConstraints { make in
-            make.edges.equalTo(detailView.safeAreaLayoutGuide)
-        }
-        posterImageView.snp.makeConstraints { make in
-            make.leading.verticalEdges.equalTo(detailView).inset(20)
-            make.width.equalTo(posterImageView.snp.height).multipliedBy(0.8)
-        }
-        tvShowNameLabel.snp.makeConstraints { make in
-            make.leading.equalTo(posterImageView.snp.trailing).offset(10)
-            make.trailing.equalTo(detailView).inset(10)
-            make.top.equalTo(posterImageView)
-            make.height.equalTo(30)
-        }
-        tvShowOriginalNamelabel.snp.makeConstraints { make in
-            make.leading.equalTo(posterImageView.snp.trailing).offset(10)
-            make.trailing.equalTo(detailView).inset(10)
-            make.top.equalTo(tvShowNameLabel.snp.bottom).offset(5)
-            make.height.equalTo(20)
-        }
-        explainLabel.snp.makeConstraints { make in
-            make.leading.equalTo(posterImageView.snp.trailing).offset(10)
-            make.trailing.equalTo(detailView).inset(10)
-            make.top.equalTo(tvShowOriginalNamelabel.snp.bottom).offset(5)
-            make.bottom.equalTo(posterImageView.snp.bottom)
-
+            self.configureView()
         }
     }
-    override func configureView() {
-        print(#function)
-        let data = detailData[0]
-
-        let posterURL = URL(string: baseURL + (data.poster_path ?? ""))
-        let backdropURL = URL(string: baseURL + data.backdrop_path)
-
-        backdropView.backdropImageView.kf.setImage(with: posterURL, placeholder: UIImage(systemName: "Star"))
-        posterImageView.kf.setImage(with: backdropURL, placeholder: UIImage(systemName: "Star"))
-        tvShowNameLabel.text = data.name
-        tvShowOriginalNamelabel.text = data.original_name
-        explainLabel.text = data.overview
-    }
-    
 }
 
-extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return titleList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as! DetailTableViewCell
+        
+        cell.collectionView.dataSource = self
+        cell.collectionView.delegate = self
+        cell.collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
+
+        cell.collectionView.tag = indexPath.row
+        cell.collectionView.reloadData()
         
         return cell
     }
@@ -142,5 +106,17 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    
+}
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.identifier, for: indexPath) as! DetailCollectionViewCell
+        
+    }
+    
     
 }
