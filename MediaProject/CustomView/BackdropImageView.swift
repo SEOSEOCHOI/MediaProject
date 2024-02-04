@@ -11,7 +11,7 @@ import SnapKit
 class BackdropView: UIView {
     let backdropImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     

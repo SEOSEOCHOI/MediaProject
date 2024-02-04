@@ -14,11 +14,6 @@ class DetailTableViewCell: BaseTableViewCell {
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-    }
-    
     override func configureHierarchy() {
         contentView.addSubview(titleLable)
         contentView.addSubview(collectionView)
@@ -30,19 +25,19 @@ class DetailTableViewCell: BaseTableViewCell {
             make.height.equalTo(20)
         }
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLable.snp.bottom)
-            make.horizontalEdges.bottom.equalTo(contentView)
+            make.top.equalTo(titleLable.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(contentView)
+            make.height.equalTo(200)
         }
+        
     }
     override func configureView() {
         backgroundColor = .green
-        collectionView.backgroundColor = .blue
-        titleLable.backgroundColor = .red
     }
     
     static func configureCollectionViewLayout() -> UICollectionViewLayout{
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 210)
+        layout.itemSize = CGSize(width: 120, height: 200)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -50,20 +45,4 @@ class DetailTableViewCell: BaseTableViewCell {
         
         return layout
     }
-    
-
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // 스토리보드 xib => nib => nib 실행
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1B81162B6F75C500A0B25F /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B81152B6F75C500A0B25F /* FindViewController.swift */; };
+		2B1B81182B6F797100A0B25F /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B81172B6F797100A0B25F /* FindView.swift */; };
+		2B1B811A2B6F85FF00A0B25F /* FindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B81192B6F85FF00A0B25F /* FindTableViewCell.swift */; };
+		2B1B811D2B7000EC00A0B25F /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B811C2B7000EC00A0B25F /* EpisodeTableViewCell.swift */; };
+		2B1B811F2B7000FC00A0B25F /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B811E2B7000FC00A0B25F /* EpisodeViewController.swift */; };
+		2B1B81232B70011400A0B25F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B81222B70011400A0B25F /* EpisodeView.swift */; };
 		2B4F88752B6BDAC500F6D590 /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F88742B6BDAC500F6D590 /* TMDBAPI.swift */; };
 		2B4F88772B6BF96600F6D590 /* TVShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F88762B6BF96600F6D590 /* TVShowView.swift */; };
 		2B4F88792B6BF9FE00F6D590 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F88782B6BF9FE00F6D590 /* BaseView.swift */; };
@@ -49,6 +55,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B1B81152B6F75C500A0B25F /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
+		2B1B81172B6F797100A0B25F /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
+		2B1B81192B6F85FF00A0B25F /* FindTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTableViewCell.swift; sourceTree = "<group>"; };
+		2B1B811C2B7000EC00A0B25F /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		2B1B811E2B7000FC00A0B25F /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		2B1B81222B70011400A0B25F /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
 		2B4F88742B6BDAC500F6D590 /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
 		2B4F88762B6BF96600F6D590 /* TVShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowView.swift; sourceTree = "<group>"; };
 		2B4F88782B6BF9FE00F6D590 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -103,6 +115,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1B81142B6F751A00A0B25F /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				2B1B81152B6F75C500A0B25F /* FindViewController.swift */,
+				2B1B81172B6F797100A0B25F /* FindView.swift */,
+				2B1B81192B6F85FF00A0B25F /* FindTableViewCell.swift */,
+			);
+			path = Find;
+			sourceTree = "<group>";
+		};
+		2B1B811B2B7000CD00A0B25F /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				2B1B81222B70011400A0B25F /* EpisodeView.swift */,
+				2B1B811E2B7000FC00A0B25F /* EpisodeViewController.swift */,
+				2B1B811C2B7000EC00A0B25F /* EpisodeTableViewCell.swift */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
+		2B1B81242B70057000A0B25F /* Season */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Season;
+			sourceTree = "<group>";
+		};
 		2BDFD97F2B6908F4001EADFB = {
 			isa = PBXGroup;
 			children = (
@@ -129,8 +168,11 @@
 				2BDFD9A12B690C8D001EADFB /* CustomView */,
 				2BDFD9A02B690C87001EADFB /* Protocol */,
 				2BDFD99F2B690C7E001EADFB /* Extension */,
+				2B1B81142B6F751A00A0B25F /* Find */,
 				2BDFD9DA2B6A597E001EADFB /* Main */,
 				2BDFD9DB2B6A59E3001EADFB /* Detail */,
+				2B1B811B2B7000CD00A0B25F /* Episode */,
+				2B1B81242B70057000A0B25F /* Season */,
 				2BDFD98B2B6908F5001EADFB /* AppDelegate.swift */,
 				2BDFD98D2B6908F5001EADFB /* SceneDelegate.swift */,
 				2BDFD9942B6908F6001EADFB /* Assets.xcassets */,
@@ -205,10 +247,10 @@
 		2BDFD9DB2B6A59E3001EADFB /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2B4F887A2B6C09B500F6D590 /* DetailVeiw.swift */,
 				2BDFD9DC2B6A59F9001EADFB /* DetailViewController.swift */,
 				2BDFD9EC2B6A73C3001EADFB /* DetailTableViewCell.swift */,
 				2B8133D52B6ABFA5006F3E96 /* DetailCollectionViewCell.swift */,
-				2B4F887A2B6C09B500F6D590 /* DetailVeiw.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -325,7 +367,9 @@
 				2B4F88772B6BF96600F6D590 /* TVShowView.swift in Sources */,
 				2BDFD9C52B6946E1001EADFB /* TVCollectionViewCell.swift in Sources */,
 				2BDFD9D92B6A2ED2001EADFB /* BaseViewController.swift in Sources */,
+				2B1B811D2B7000EC00A0B25F /* EpisodeTableViewCell.swift in Sources */,
 				2B8133D02B6A90A5006F3E96 /* BackdropImageView.swift in Sources */,
+				2B1B811F2B7000FC00A0B25F /* EpisodeViewController.swift in Sources */,
 				2BDFD9E22B6A6033001EADFB /* RecommandModel.swift in Sources */,
 				2BDFD9ED2B6A73C3001EADFB /* DetailTableViewCell.swift in Sources */,
 				2BDFD9C12B693159001EADFB /* TVTableViewCell.swift in Sources */,
@@ -336,12 +380,16 @@
 				2BDFD98C2B6908F5001EADFB /* AppDelegate.swift in Sources */,
 				2BDFD9C32B693184001EADFB /* BlackTextLabel.swift in Sources */,
 				2B8133D42B6ABBDE006F3E96 /* ExplainLabel.swift in Sources */,
+				2B1B81162B6F75C500A0B25F /* FindViewController.swift in Sources */,
 				2BDFD9C82B694723001EADFB /* PosterImageView.swift in Sources */,
 				2BDFD9EB2B6A7311001EADFB /* BaseTableViewCell.swift in Sources */,
 				2BDFD9DD2B6A59F9001EADFB /* DetailViewController.swift in Sources */,
 				2B4F88752B6BDAC500F6D590 /* TMDBAPI.swift in Sources */,
+				2B1B811A2B6F85FF00A0B25F /* FindTableViewCell.swift in Sources */,
 				2BDFD98E2B6908F5001EADFB /* SceneDelegate.swift in Sources */,
+				2B1B81232B70011400A0B25F /* EpisodeView.swift in Sources */,
 				2BDFD9A92B691081001EADFB /* UIViewController + Extension.swift in Sources */,
+				2B1B81182B6F797100A0B25F /* FindView.swift in Sources */,
 				2B4F887B2B6C09B500F6D590 /* DetailVeiw.swift in Sources */,
 				2BDFD9E42B6A603D001EADFB /* CreditModel.swift in Sources */,
 				2BDFD9CD2B6966AC001EADFB /* TitleTextLabel.swift in Sources */,

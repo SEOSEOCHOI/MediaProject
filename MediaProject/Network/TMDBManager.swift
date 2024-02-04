@@ -10,6 +10,23 @@ import Alamofire
 
 class TMDBManager {
     static let shared = TMDBManager()
+    
+    func request<T: Decodable>(type: T.Type, api: TMDBAPI, completionHandler: @escaping (T) -> Void) {
+        
+        AF.request(api.endPoint,
+                   method: api.method,
+                   parameters: api.parameters,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: T.self) { response in
+            switch response.result {
+            case .success(let success):
+                completionHandler(success)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+    }
+    
     func fetchTVShow(api: TMDBAPI,completionHandler: @escaping (TVShowModel) -> Void) {
         AF.request(api.endPoint,
                    method: api.method,

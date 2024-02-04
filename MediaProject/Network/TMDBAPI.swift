@@ -20,7 +20,6 @@ enum TMDBAPI {
     case credit(id: Int)
     case search(query: String)
 
-    // 📖 request 시 사용하지 않는데 privat으로 설정하면 안되나??!!
     private var baseURL: String {
         return "https://api.themoviedb.org/3/"
     }

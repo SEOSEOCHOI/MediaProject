@@ -10,7 +10,7 @@ import SnapKit
 import Kingfisher
 
 
-// 📖 그런데 뷰를 따로 관리할 거면 현재 configureView, hierarchy 관련 메서드만 있으면... baseVC를 상속을 안 받아도 되는 건가???? ㅜ
+// 📖 그런데 뷰를 따로 관리할 거면 현재 configureView, hierarchy 관련 메서드만 있으면... baseVC를 상속을 안 받아도 되는 건가???? ㅜ -> 현재는 그런 상황. 추가적으로 공통적 기능이 생길 시 받아도 됨.
 class ViewController: UIViewController {
 
     var TVShowList: [TVShowModel] = [
@@ -27,9 +27,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundColor()
         fetchTVShow()
         mainView.tvShowTableView.delegate = self
         mainView.tvShowTableView.dataSource = self
+        mainView.searchBar.delegate = self 
+        
+        navigationItem.title = "추천 작품"
     }
 }
 
@@ -38,22 +42,30 @@ extension ViewController {
         let group = DispatchGroup()
         
         group.enter()
-        TMDBManager.shared.fetchTVShow(api: .trending) { tv in
+        
+        TMDBManager.shared.request(type: TVShowModel.self, api: .trending) { tv in
             self.TVShowList[0] = tv
+            group.leave()
+        }
+        /*
+         TMDBManager.shared.fetchTVShow(api: .trending) { tv in
+             self.TVShowList[0] = tv
+             group.leave()
+         }
+         */
+
+        group.enter()
+        TMDBManager.shared.request(type: TVShowModel.self, api: .popular) { tv in
+            self.TVShowList[1] = tv
             group.leave()
         }
         
         group.enter()
-        TMDBManager.shared.fetchTVShow(api: .popular, completionHandler: { tv in
-            self.TVShowList[1] = tv
-            group.leave()
-        })
-        
-        group.enter()
-        TMDBManager.shared.fetchTVShow(api: .toprated, completionHandler: { tv in
+
+        TMDBManager.shared.request(type: TVShowModel.self, api: .toprated) { tv in
             self.TVShowList[2] = tv
             group.leave()
-        })
+        }
         
         group.notify(queue: .main) {
             self.mainView.tvShowTableView.reloadData()
@@ -95,6 +107,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TVCollectionViewCell.identifier, for: indexPath) as! TVCollectionViewCell
         
         let item = TVShowList[collectionView.tag].tvShow[indexPath.item]
+        print(item)
         if let image = item.poster_path {
             let url = URL(string: "https://image.tmdb.org/t/p/w500\(image)")
             cell.postetImageView.kf.setImage(with:  url)
@@ -105,9 +118,22 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailViewController()
+        let item = TVShowList[collectionView.tag].tvShow[indexPath.item]
         
-        vc.findId = TVShowList[collectionView.tag].tvShow[indexPath.item].id
-        present(vc, animated: true)
+        vc.findId = item.id
+        vc.navgationTitle = item.name
+        transition(style: .push, viewController: vc)
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let vc = FindViewController()
+        if let findTitle = searchBar.text {
+            vc.findTitle = findTitle
+            print(findTitle)
+        }
+        transition(style: .push, viewController: vc)
     }
 }
 

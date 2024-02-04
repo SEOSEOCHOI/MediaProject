@@ -15,11 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let _ = (scene as? UIWindowScene) else { return }
+        let navigationController = UINavigationController(rootViewController: ViewController())
         
-        window?.rootViewController = WalkThroughtViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
-        //let navigationController = UINavigationController(rootViewController: WalkThroughtViewController())
-        
-        //window?.rootViewController = navigationController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

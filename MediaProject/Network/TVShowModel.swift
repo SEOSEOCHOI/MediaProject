@@ -15,7 +15,7 @@ struct TVShowModel: Decodable {
     }
 }
 
-struct TVShow: Codable{
+struct TVShow: Decodable {
     let id: Int
     let name: String
     let original_name: String

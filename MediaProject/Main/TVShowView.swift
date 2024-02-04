@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import SnapKit
 
 // 뷰만!
 class TVShowView: BaseView {
+    let searchBar: UISearchBar = {
+       let view = UISearchBar()
+        view.placeholder = "TV, 배우, 작가, 감독을 검색해 보세요."
+        return view
+    }()
     
     let tvShowTableView: UITableView = {
         let view = UITableView()
@@ -16,12 +22,19 @@ class TVShowView: BaseView {
         return view
     }()
     
-    override func configureHierarchy() {       addSubview(tvShowTableView)
+    override func configureHierarchy() {  
+        addSubview(tvShowTableView)
+        addSubview(searchBar)
     }
     
     override func configureLayout() {
+        
+        searchBar.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(safeAreaLayoutGuide)
+        }
         tvShowTableView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(searchBar)
+            make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide)
         }
     }
 }

@@ -24,7 +24,9 @@ class DetailCollectionViewCell: UICollectionViewCell {
     
     func configureLayout() {
         imageView.snp.makeConstraints { make in
-            make.edges.equalTo(contentView)
+            make.top.equalTo(contentView)
+            make.horizontalEdges.equalTo(contentView)
+            make.height.equalTo(160)
         }
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(10)
