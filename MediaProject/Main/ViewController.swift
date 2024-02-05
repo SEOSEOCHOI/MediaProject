@@ -41,29 +41,59 @@ extension ViewController {
     func fetchTVShow() {
         let group = DispatchGroup()
         
-        group.enter()
-        
-        TMDBManager.shared.request(type: TVShowModel.self, api: .trending) { tv in
-            self.TVShowList[0] = tv
-            group.leave()
-        }
         /*
-         TMDBManager.shared.fetchTVShow(api: .trending) { tv in
+         
+         group.enter()
+         
+         TMDBManager.shared.request(type: TVShowModel.self, api: .trending) { tv in
              self.TVShowList[0] = tv
+             group.leave()
+         }
+         /*
+          TMDBManager.shared.fetchTVShow(api: .trending) { tv in
+              self.TVShowList[0] = tv
+              group.leave()
+          }
+          */
+
+         group.enter()
+         TMDBManager.shared.request(type: TVShowModel.self, api: .popular) { tv in
+             self.TVShowList[1] = tv
+             group.leave()
+         }
+         
+         group.enter()
+
+         TMDBManager.shared.request(type: TVShowModel.self, api: .toprated) { tv in
+             self.TVShowList[2] = tv
              group.leave()
          }
          */
 
         group.enter()
-        TMDBManager.shared.request(type: TVShowModel.self, api: .popular) { tv in
-            self.TVShowList[1] = tv
+        TMDBSessionManager.shared.fetchTrendingModel { tv, error in
+            if error == nil {
+                guard let tv = tv else { return }
+                self.TVShowList[0] = tv
+            }
             group.leave()
         }
         
         group.enter()
-
-        TMDBManager.shared.request(type: TVShowModel.self, api: .toprated) { tv in
-            self.TVShowList[2] = tv
+        TMDBSessionManager.shared.fetchPopularModel { tv, error in
+            if error == nil {
+                guard let tv = tv else { return }
+                self.TVShowList[1] = tv
+            }          
+            group.leave()
+        }
+        
+        group.enter()
+        TMDBSessionManager.shared.fetchTopRatedModel { tv, error in
+            if error == nil {
+                guard let tv = tv else { return }
+                self.TVShowList[2] = tv
+            }
             group.leave()
         }
         

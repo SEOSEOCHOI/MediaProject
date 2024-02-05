@@ -33,7 +33,7 @@ class TVShowView: BaseView {
             make.top.horizontalEdges.equalTo(safeAreaLayoutGuide)
         }
         tvShowTableView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar)
+            make.top.equalTo(searchBar.snp.bottom)
             make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide)
         }
     }

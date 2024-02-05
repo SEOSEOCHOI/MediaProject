@@ -63,25 +63,25 @@ class DetailViewController: BaseViewController {
         let group = DispatchGroup()
         
         group.enter()
-        TMDBManager.shared.fetchDetails(api: .detail(id: findId), completionHandler: { detail in
-            self.detailData.append(detail)
-            group.leave()
-        })
-        
-        group.enter()
-        TMDBManager.shared.fetchRecommand(api: .recommand(id: findId), completionHandler: { detail in
-            self.recommeandList = detail
-            group.leave()
-        })
-        
-        group.enter()
-        TMDBManager.shared.fetchCredit(api: .credit(id: findId), completionHandler: { detail in
-            self.castList = detail.cast
-            self.crewList = detail.crew
-            
-            group.leave()
-        })
-        
+         TMDBManager.shared.fetchDetails(api: .detail(id: findId), completionHandler: { detail in
+         self.detailData.append(detail)
+         group.leave()
+         })
+         
+         group.enter()
+         TMDBManager.shared.fetchRecommand(api: .recommand(id: findId), completionHandler: { detail in
+         self.recommeandList = detail
+         group.leave()
+         })
+         
+         group.enter()
+         TMDBManager.shared.fetchCredit(api: .credit(id: findId), completionHandler: { detail in
+         self.castList = detail.cast
+         self.crewList = detail.crew
+         
+         group.leave()
+         })
+
         group.notify(queue: .main) {
             self.configureView()
             self.mainView.detailTableView.reloadData()
@@ -123,7 +123,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 let data = detailData[0]
                 let item = data.seasons
                 if item.count != 0 {
-                    return detailData[section].seasons.count
+                    return detailData[0].seasons.count
                 }
             }
             return 0
@@ -172,5 +172,33 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         default: break
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: API를 이용한 화면 이동
+        // TVSeriesDetails, TVPerson, searchTV...?? 
+        let vc = DetailViewController()
+        switch collectionView.tag {
+        case 0:
+            let data = detailData[0]
+            let item = data.seasons[indexPath.item]
+            if let id = item?.id {
+                vc.findId = id
+                vc.navgationTitle = item?.name ?? ""
+            }
+
+        case 1:
+            let item = castList[indexPath.item]
+            
+        case 2:
+            let item = crewList[indexPath.item]
+            
+        case 3:
+            let item = recommeandList[indexPath.item]
+            
+        default: break
+        }
+        transition(style: .push, viewController: vc)
+
     }
 }
