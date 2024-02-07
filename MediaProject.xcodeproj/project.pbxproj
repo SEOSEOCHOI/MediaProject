@@ -13,6 +13,10 @@
 		2B1B811D2B7000EC00A0B25F /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B811C2B7000EC00A0B25F /* EpisodeTableViewCell.swift */; };
 		2B1B811F2B7000FC00A0B25F /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B811E2B7000FC00A0B25F /* EpisodeViewController.swift */; };
 		2B1B81232B70011400A0B25F /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B81222B70011400A0B25F /* EpisodeView.swift */; };
+		2B1B81292B70D08300A0B25F /* TMDBSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B81282B70D08300A0B25F /* TMDBSessionManager.swift */; };
+		2B1B812B2B713C5100A0B25F /* SeasonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B812A2B713C5100A0B25F /* SeasonDetailViewController.swift */; };
+		2B1B812D2B713C7600A0B25F /* CreditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B812C2B713C7600A0B25F /* CreditDetailViewController.swift */; };
+		2B1B812F2B713CAF00A0B25F /* SeasonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1B812E2B713CAF00A0B25F /* SeasonDetailView.swift */; };
 		2B4F88752B6BDAC500F6D590 /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F88742B6BDAC500F6D590 /* TMDBAPI.swift */; };
 		2B4F88772B6BF96600F6D590 /* TVShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F88762B6BF96600F6D590 /* TVShowView.swift */; };
 		2B4F88792B6BF9FE00F6D590 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F88782B6BF9FE00F6D590 /* BaseView.swift */; };
@@ -61,6 +65,10 @@
 		2B1B811C2B7000EC00A0B25F /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		2B1B811E2B7000FC00A0B25F /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		2B1B81222B70011400A0B25F /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
+		2B1B81282B70D08300A0B25F /* TMDBSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBSessionManager.swift; sourceTree = "<group>"; };
+		2B1B812A2B713C5100A0B25F /* SeasonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetailViewController.swift; sourceTree = "<group>"; };
+		2B1B812C2B713C7600A0B25F /* CreditDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditDetailViewController.swift; sourceTree = "<group>"; };
+		2B1B812E2B713CAF00A0B25F /* SeasonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetailView.swift; sourceTree = "<group>"; };
 		2B4F88742B6BDAC500F6D590 /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
 		2B4F88762B6BF96600F6D590 /* TVShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowView.swift; sourceTree = "<group>"; };
 		2B4F88782B6BF9FE00F6D590 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -118,8 +126,8 @@
 		2B1B81142B6F751A00A0B25F /* Find */ = {
 			isa = PBXGroup;
 			children = (
-				2B1B81152B6F75C500A0B25F /* FindViewController.swift */,
 				2B1B81172B6F797100A0B25F /* FindView.swift */,
+				2B1B81152B6F75C500A0B25F /* FindViewController.swift */,
 				2B1B81192B6F85FF00A0B25F /* FindTableViewCell.swift */,
 			);
 			path = Find;
@@ -135,11 +143,21 @@
 			path = Episode;
 			sourceTree = "<group>";
 		};
-		2B1B81242B70057000A0B25F /* Season */ = {
+		2B1B81302B713CB300A0B25F /* Season */ = {
 			isa = PBXGroup;
 			children = (
+				2B1B812A2B713C5100A0B25F /* SeasonDetailViewController.swift */,
+				2B1B812E2B713CAF00A0B25F /* SeasonDetailView.swift */,
 			);
 			path = Season;
+			sourceTree = "<group>";
+		};
+		2B1B81312B713CCC00A0B25F /* Credit */ = {
+			isa = PBXGroup;
+			children = (
+				2B1B812C2B713C7600A0B25F /* CreditDetailViewController.swift */,
+			);
+			path = Credit;
 			sourceTree = "<group>";
 		};
 		2BDFD97F2B6908F4001EADFB = {
@@ -168,11 +186,10 @@
 				2BDFD9A12B690C8D001EADFB /* CustomView */,
 				2BDFD9A02B690C87001EADFB /* Protocol */,
 				2BDFD99F2B690C7E001EADFB /* Extension */,
-				2B1B81142B6F751A00A0B25F /* Find */,
 				2BDFD9DA2B6A597E001EADFB /* Main */,
+				2B1B81142B6F751A00A0B25F /* Find */,
 				2BDFD9DB2B6A59E3001EADFB /* Detail */,
 				2B1B811B2B7000CD00A0B25F /* Episode */,
-				2B1B81242B70057000A0B25F /* Season */,
 				2BDFD98B2B6908F5001EADFB /* AppDelegate.swift */,
 				2BDFD98D2B6908F5001EADFB /* SceneDelegate.swift */,
 				2BDFD9942B6908F6001EADFB /* Assets.xcassets */,
@@ -224,8 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				2BDFD9B12B691614001EADFB /* APIKey.swift */,
-				2BDFD9BB2B69168F001EADFB /* TMDBManager.swift */,
 				2B4F88742B6BDAC500F6D590 /* TMDBAPI.swift */,
+				2BDFD9BB2B69168F001EADFB /* TMDBManager.swift */,
+				2B1B81282B70D08300A0B25F /* TMDBSessionManager.swift */,
 				2BDFD9B72B691669001EADFB /* TVShowModel.swift */,
 				2BDFD9B92B691683001EADFB /* PosterModel.swift */,
 				2BDFD9DE2B6A600D001EADFB /* Details */,
@@ -249,8 +267,10 @@
 			children = (
 				2B4F887A2B6C09B500F6D590 /* DetailVeiw.swift */,
 				2BDFD9DC2B6A59F9001EADFB /* DetailViewController.swift */,
-				2BDFD9EC2B6A73C3001EADFB /* DetailTableViewCell.swift */,
 				2B8133D52B6ABFA5006F3E96 /* DetailCollectionViewCell.swift */,
+				2BDFD9EC2B6A73C3001EADFB /* DetailTableViewCell.swift */,
+				2B1B81302B713CB300A0B25F /* Season */,
+				2B1B81312B713CCC00A0B25F /* Credit */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -359,15 +379,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1B812D2B713C7600A0B25F /* CreditDetailViewController.swift in Sources */,
 				2BDFD9BA2B691683001EADFB /* PosterModel.swift in Sources */,
 				2BDFD9B82B691669001EADFB /* TVShowModel.swift in Sources */,
+				2B1B812B2B713C5100A0B25F /* SeasonDetailViewController.swift in Sources */,
 				2B8133D62B6ABFA5006F3E96 /* DetailCollectionViewCell.swift in Sources */,
 				2BDFD9A72B690D45001EADFB /* Reuseable.swift in Sources */,
 				2BDFD9E02B6A6025001EADFB /* DetailsModel.swift in Sources */,
 				2B4F88772B6BF96600F6D590 /* TVShowView.swift in Sources */,
 				2BDFD9C52B6946E1001EADFB /* TVCollectionViewCell.swift in Sources */,
+				2B1B812F2B713CAF00A0B25F /* SeasonDetailView.swift in Sources */,
 				2BDFD9D92B6A2ED2001EADFB /* BaseViewController.swift in Sources */,
 				2B1B811D2B7000EC00A0B25F /* EpisodeTableViewCell.swift in Sources */,
+				2B1B81292B70D08300A0B25F /* TMDBSessionManager.swift in Sources */,
 				2B8133D02B6A90A5006F3E96 /* BackdropImageView.swift in Sources */,
 				2B1B811F2B7000FC00A0B25F /* EpisodeViewController.swift in Sources */,
 				2BDFD9E22B6A6033001EADFB /* RecommandModel.swift in Sources */,
