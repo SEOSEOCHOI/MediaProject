@@ -25,6 +25,19 @@
 		2B8133D22B6ABBAA006F3E96 /* SubTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8133D12B6ABBAA006F3E96 /* SubTitleLabel.swift */; };
 		2B8133D42B6ABBDE006F3E96 /* ExplainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8133D32B6ABBDE006F3E96 /* ExplainLabel.swift */; };
 		2B8133D62B6ABFA5006F3E96 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8133D52B6ABFA5006F3E96 /* DetailCollectionViewCell.swift */; };
+		2B8AC5C82B7922500076D5E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5C72B7922500076D5E5 /* ProfileViewController.swift */; };
+		2B8AC5CB2B79236F0076D5E5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5CA2B79236F0076D5E5 /* ProfileView.swift */; };
+		2B8AC5CE2B7BB0970076D5E5 /* WhiteTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5CD2B7BB0970076D5E5 /* WhiteTextLabel.swift */; };
+		2B8AC5D02B7BBA6D0076D5E5 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5CF2B7BBA6D0076D5E5 /* ProfileSettingView.swift */; };
+		2B8AC5D22B7BBA760076D5E5 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5D12B7BBA760076D5E5 /* ProfileSettingViewController.swift */; };
+		2B8AC5D52B7BCF3C0076D5E5 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 2B8AC5D42B7BCF3C0076D5E5 /* TextFieldEffects */; };
+		2B8AC5DA2B7BDC100076D5E5 /* FindImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5D92B7BDC100076D5E5 /* FindImageViewController.swift */; };
+		2B8AC5DC2B7BDC200076D5E5 /* FindImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5DB2B7BDC200076D5E5 /* FindImageView.swift */; };
+		2B8AC5DE2B7BDC790076D5E5 /* FindImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5DD2B7BDC790076D5E5 /* FindImageCollectionViewCell.swift */; };
+		2B8AC5E02B7BDCA50076D5E5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5DF2B7BDCA50076D5E5 /* BaseCollectionViewCell.swift */; };
+		2B8AC5E22B7BDF390076D5E5 /* NaverImageAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5E12B7BDF390076D5E5 /* NaverImageAPIManager.swift */; };
+		2B8AC5E42B7BDF4B0076D5E5 /* NaverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5E32B7BDF4B0076D5E5 /* NaverAPI.swift */; };
+		2B8AC5E62B7BE17C0076D5E5 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8AC5E52B7BE17C0076D5E5 /* ImageModel.swift */; };
 		2BDFD98C2B6908F5001EADFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD98B2B6908F5001EADFB /* AppDelegate.swift */; };
 		2BDFD98E2B6908F5001EADFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD98D2B6908F5001EADFB /* SceneDelegate.swift */; };
 		2BDFD9902B6908F5001EADFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFD98F2B6908F5001EADFB /* ViewController.swift */; };
@@ -77,6 +90,18 @@
 		2B8133D12B6ABBAA006F3E96 /* SubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitleLabel.swift; sourceTree = "<group>"; };
 		2B8133D32B6ABBDE006F3E96 /* ExplainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainLabel.swift; sourceTree = "<group>"; };
 		2B8133D52B6ABFA5006F3E96 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B8AC5C72B7922500076D5E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2B8AC5CA2B79236F0076D5E5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2B8AC5CD2B7BB0970076D5E5 /* WhiteTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteTextLabel.swift; sourceTree = "<group>"; };
+		2B8AC5CF2B7BBA6D0076D5E5 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
+		2B8AC5D12B7BBA760076D5E5 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		2B8AC5D92B7BDC100076D5E5 /* FindImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindImageViewController.swift; sourceTree = "<group>"; };
+		2B8AC5DB2B7BDC200076D5E5 /* FindImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindImageView.swift; sourceTree = "<group>"; };
+		2B8AC5DD2B7BDC790076D5E5 /* FindImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B8AC5DF2B7BDCA50076D5E5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B8AC5E12B7BDF390076D5E5 /* NaverImageAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverImageAPIManager.swift; sourceTree = "<group>"; };
+		2B8AC5E32B7BDF4B0076D5E5 /* NaverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAPI.swift; sourceTree = "<group>"; };
+		2B8AC5E52B7BE17C0076D5E5 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		2BDFD9882B6908F5001EADFB /* MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BDFD98B2B6908F5001EADFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BDFD98D2B6908F5001EADFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +142,7 @@
 				2BDFD9BF2B69179C001EADFB /* Alamofire in Frameworks */,
 				2BDFD9AC2B69129C001EADFB /* SnapKit in Frameworks */,
 				2BDFD9AE2B69129C001EADFB /* SnapKit-Dynamic in Frameworks */,
+				2B8AC5D52B7BCF3C0076D5E5 /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +186,20 @@
 			path = Credit;
 			sourceTree = "<group>";
 		};
+		2B9583392B792205000DA172 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2B8AC5CA2B79236F0076D5E5 /* ProfileView.swift */,
+				2B8AC5C72B7922500076D5E5 /* ProfileViewController.swift */,
+				2B8AC5CF2B7BBA6D0076D5E5 /* ProfileSettingView.swift */,
+				2B8AC5D12B7BBA760076D5E5 /* ProfileSettingViewController.swift */,
+				2B8AC5DB2B7BDC200076D5E5 /* FindImageView.swift */,
+				2B8AC5D92B7BDC100076D5E5 /* FindImageViewController.swift */,
+				2B8AC5DD2B7BDC790076D5E5 /* FindImageCollectionViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		2BDFD97F2B6908F4001EADFB = {
 			isa = PBXGroup;
 			children = (
@@ -190,8 +230,9 @@
 				2B1B81142B6F751A00A0B25F /* Find */,
 				2BDFD9DB2B6A59E3001EADFB /* Detail */,
 				2B1B811B2B7000CD00A0B25F /* Episode */,
-				2BDFD98B2B6908F5001EADFB /* AppDelegate.swift */,
+				2B9583392B792205000DA172 /* Profile */,
 				2BDFD98D2B6908F5001EADFB /* SceneDelegate.swift */,
+				2BDFD98B2B6908F5001EADFB /* AppDelegate.swift */,
 				2BDFD9942B6908F6001EADFB /* Assets.xcassets */,
 				2BDFD9962B6908F6001EADFB /* LaunchScreen.storyboard */,
 				2BDFD9E72B6A6B5E001EADFB /* Main.storyboard */,
@@ -226,6 +267,7 @@
 				2B8133CF2B6A90A5006F3E96 /* BackdropImageView.swift */,
 				2B8133D12B6ABBAA006F3E96 /* SubTitleLabel.swift */,
 				2B8133D32B6ABBDE006F3E96 /* ExplainLabel.swift */,
+				2B8AC5CD2B7BB0970076D5E5 /* WhiteTextLabel.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -247,6 +289,9 @@
 				2BDFD9B72B691669001EADFB /* TVShowModel.swift */,
 				2BDFD9B92B691683001EADFB /* PosterModel.swift */,
 				2BDFD9DE2B6A600D001EADFB /* Details */,
+				2B8AC5E12B7BDF390076D5E5 /* NaverImageAPIManager.swift */,
+				2B8AC5E32B7BDF4B0076D5E5 /* NaverAPI.swift */,
+				2B8AC5E52B7BE17C0076D5E5 /* ImageModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -292,6 +337,7 @@
 				2BDFD9D82B6A2ED2001EADFB /* BaseViewController.swift */,
 				2BDFD9EA2B6A7311001EADFB /* BaseTableViewCell.swift */,
 				2B4F88782B6BF9FE00F6D590 /* BaseView.swift */,
+				2B8AC5DF2B7BDCA50076D5E5 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -317,6 +363,7 @@
 				2BDFD9AD2B69129C001EADFB /* SnapKit-Dynamic */,
 				2BDFD9BE2B69179C001EADFB /* Alamofire */,
 				2BDFD9CA2B694C18001EADFB /* Kingfisher */,
+				2B8AC5D42B7BCF3C0076D5E5 /* TextFieldEffects */,
 			);
 			productName = MediaProject;
 			productReference = 2BDFD9882B6908F5001EADFB /* MediaProject.app */;
@@ -350,6 +397,7 @@
 				2BDFD9AA2B69129B001EADFB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2BDFD9BD2B69179C001EADFB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				2BDFD9C92B694C18001EADFB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				2B8AC5D32B7BCF3C0076D5E5 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = 2BDFD9892B6908F5001EADFB /* Products */;
 			projectDirPath = "";
@@ -389,17 +437,27 @@
 				2B4F88772B6BF96600F6D590 /* TVShowView.swift in Sources */,
 				2BDFD9C52B6946E1001EADFB /* TVCollectionViewCell.swift in Sources */,
 				2B1B812F2B713CAF00A0B25F /* SeasonDetailView.swift in Sources */,
+				2B8AC5DA2B7BDC100076D5E5 /* FindImageViewController.swift in Sources */,
 				2BDFD9D92B6A2ED2001EADFB /* BaseViewController.swift in Sources */,
 				2B1B811D2B7000EC00A0B25F /* EpisodeTableViewCell.swift in Sources */,
+				2B8AC5DC2B7BDC200076D5E5 /* FindImageView.swift in Sources */,
 				2B1B81292B70D08300A0B25F /* TMDBSessionManager.swift in Sources */,
+				2B8AC5E02B7BDCA50076D5E5 /* BaseCollectionViewCell.swift in Sources */,
+				2B8AC5CB2B79236F0076D5E5 /* ProfileView.swift in Sources */,
 				2B8133D02B6A90A5006F3E96 /* BackdropImageView.swift in Sources */,
 				2B1B811F2B7000FC00A0B25F /* EpisodeViewController.swift in Sources */,
+				2B8AC5E62B7BE17C0076D5E5 /* ImageModel.swift in Sources */,
 				2BDFD9E22B6A6033001EADFB /* RecommandModel.swift in Sources */,
+				2B8AC5CE2B7BB0970076D5E5 /* WhiteTextLabel.swift in Sources */,
 				2BDFD9ED2B6A73C3001EADFB /* DetailTableViewCell.swift in Sources */,
 				2BDFD9C12B693159001EADFB /* TVTableViewCell.swift in Sources */,
+				2B8AC5C82B7922500076D5E5 /* ProfileViewController.swift in Sources */,
 				2BDFD9B22B691614001EADFB /* APIKey.swift in Sources */,
 				2B8133D22B6ABBAA006F3E96 /* SubTitleLabel.swift in Sources */,
+				2B8AC5D22B7BBA760076D5E5 /* ProfileSettingViewController.swift in Sources */,
 				2BDFD9902B6908F5001EADFB /* ViewController.swift in Sources */,
+				2B8AC5DE2B7BDC790076D5E5 /* FindImageCollectionViewCell.swift in Sources */,
+				2B8AC5D02B7BBA6D0076D5E5 /* ProfileSettingView.swift in Sources */,
 				2BDFD9E62B6A6554001EADFB /* SearchModel.swift in Sources */,
 				2BDFD98C2B6908F5001EADFB /* AppDelegate.swift in Sources */,
 				2BDFD9C32B693184001EADFB /* BlackTextLabel.swift in Sources */,
@@ -409,6 +467,7 @@
 				2BDFD9EB2B6A7311001EADFB /* BaseTableViewCell.swift in Sources */,
 				2BDFD9DD2B6A59F9001EADFB /* DetailViewController.swift in Sources */,
 				2B4F88752B6BDAC500F6D590 /* TMDBAPI.swift in Sources */,
+				2B8AC5E22B7BDF390076D5E5 /* NaverImageAPIManager.swift in Sources */,
 				2B1B811A2B6F85FF00A0B25F /* FindTableViewCell.swift in Sources */,
 				2BDFD98E2B6908F5001EADFB /* SceneDelegate.swift in Sources */,
 				2B1B81232B70011400A0B25F /* EpisodeView.swift in Sources */,
@@ -416,6 +475,7 @@
 				2B1B81182B6F797100A0B25F /* FindView.swift in Sources */,
 				2B4F887B2B6C09B500F6D590 /* DetailVeiw.swift in Sources */,
 				2BDFD9E42B6A603D001EADFB /* CreditModel.swift in Sources */,
+				2B8AC5E42B7BDF4B0076D5E5 /* NaverAPI.swift in Sources */,
 				2BDFD9CD2B6966AC001EADFB /* TitleTextLabel.swift in Sources */,
 				2B4F88792B6BF9FE00F6D590 /* BaseView.swift in Sources */,
 				2BDFD9BC2B69168F001EADFB /* TMDBManager.swift in Sources */,
@@ -642,6 +702,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2B8AC5D32B7BCF3C0076D5E5 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 		2BDFD9AA2B69129B001EADFB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -669,6 +737,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B8AC5D42B7BCF3C0076D5E5 /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B8AC5D32B7BCF3C0076D5E5 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
+		};
 		2BDFD9AB2B69129C001EADFB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2BDFD9AA2B69129B001EADFB /* XCRemoteSwiftPackageReference "SnapKit" */;
