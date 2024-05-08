@@ -17,6 +17,26 @@ enum SeSACError: Error {
 class TMDBSessionManager {
     static let shared = TMDBSessionManager()
     
+    func fetchTMDBAsyncAwait<T: Decodable>(type: T.Type, api: TMDBAPI) async throws -> T {
+        var url = URLRequest(url: api.endPoint)
+        url.httpMethod = "GET"
+        url.addValue(APIKey.tmdb, forHTTPHeaderField: "Authorization")
+        
+        // 응답이 오기 전까지 대기.
+        let (data, response) = try await URLSession.shared.data(for: url)
+        
+        guard let response = response as? HTTPURLResponse else {
+            throw SeSACError.invaildResponse
+        }
+        guard response.statusCode == 200 else {
+            throw SeSACError.invaildData
+        }
+        
+        let result = try JSONDecoder().decode(T.self, from: data)
+        return result
+        
+    }
+
     // Trending
     func fetchTrendingModel(completionHandelr: @escaping (TVShowModel?, SeSACError?) -> Void) {
         var url = URLRequest(url: TMDBAPI.trending.endPoint)

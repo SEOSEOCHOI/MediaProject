@@ -39,36 +39,24 @@ extension ViewController {
     func fetchTVShow() {
         let group = DispatchGroup()
 
-        group.enter()
-        TMDBSessionManager.shared.fetchTrendingModel { tv, error in
-            if error == nil {
-                guard let tv = tv else { return }
-                self.TVShowList[0] = tv
-            }
-            group.leave()
-        }
-        
-        group.enter()
-        TMDBSessionManager.shared.fetchPopularModel { tv, error in
-            if error == nil {
-                guard let tv = tv else { return }
-                self.TVShowList[1] = tv
-            }          
-            group.leave()
-        }
-        
-        group.enter()
-        TMDBSessionManager.shared.fetchTopRatedModel { tv, error in
-            if error == nil {
-                guard let tv = tv else { return }
-                self.TVShowList[2] = tv
-            }
-            group.leave()
-        }
-        
-        group.notify(queue: .main) {
+        Task {
+            let result = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: TVShowModel.self, api: .trending)
+            self.TVShowList[0] = result
             self.mainView.tvShowTableView.reloadData()
         }
+        
+        Task {
+            let result = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: TVShowModel.self, api: .popular)
+            self.TVShowList[1] = result
+            self.mainView.tvShowTableView.reloadData()
+        }
+        
+        Task {
+            let result = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: TVShowModel.self, api: .toprated)
+            self.TVShowList[2] = result
+            self.mainView.tvShowTableView.reloadData()
+        }
+
     }
 }
 
