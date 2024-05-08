@@ -36,27 +36,14 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
-    func fetchTVShow() {
-        let group = DispatchGroup()
-
+    func fetchTVShow() {        
         Task {
-            let result = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: TVShowModel.self, api: .trending)
-            self.TVShowList[0] = result
-            self.mainView.tvShowTableView.reloadData()
+            let result = try await TMDBSessionManager.shared.fetchTMDBTaskGroup(type: TVShowModel.self, api: [.trending, .popular, .toprated])
+            TVShowList[0] = result[0]
+            TVShowList[1] = result[1]
+            TVShowList[2] = result[2]
+            mainView.tvShowTableView.reloadData()
         }
-        
-        Task {
-            let result = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: TVShowModel.self, api: .popular)
-            self.TVShowList[1] = result
-            self.mainView.tvShowTableView.reloadData()
-        }
-        
-        Task {
-            let result = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: TVShowModel.self, api: .toprated)
-            self.TVShowList[2] = result
-            self.mainView.tvShowTableView.reloadData()
-        }
-
     }
 }
 
