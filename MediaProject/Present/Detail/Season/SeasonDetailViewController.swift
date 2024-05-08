@@ -55,32 +55,29 @@ class SeasonDetailViewController: BaseViewController {
         }
     }
     func fetchData() {
-        let group = DispatchGroup()
-        
-        group.enter()
-         TMDBManager.shared.fetchDetails(api: .detail(id: findId), completionHandler: { detail in
-         self.detailData.append(detail)
-         group.leave()
-         })
-         
-         group.enter()
-         TMDBManager.shared.fetchRecommand(api: .recommand(id: findId), completionHandler: { detail in
-         self.recommeandList = detail
-         group.leave()
-         })
-         
-         group.enter()
-         TMDBManager.shared.fetchCredit(api: .credit(id: findId), completionHandler: { detail in
-         self.castList = detail.cast
-         self.crewList = detail.crew
-         
-         group.leave()
-         })
+        Task {
+            let detailResult = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: DetailsModel.self, api: .detail(id: findId))
 
-        group.notify(queue: .main) {
-            self.configureView()
-            self.mainView.detailTableView.reloadData()
-            self.collectionView.reloadData()
+            detailData.append(detailResult)
+
+            configureView()
+
+        }
+        Task {
+            let recommandResult = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: RecommandModel.self, api: .recommand(id: findId))
+            
+            recommeandList = recommandResult.results
+
+            mainView.detailTableView.reloadData()
+            collectionView.reloadData()
+        }
+        Task {
+            let creditResult = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: CreditModel.self, api: .credit(id: findId))
+            
+            castList = creditResult.cast
+            crewList = creditResult.crew
+            mainView.detailTableView.reloadData()
+            collectionView.reloadData()
         }
     }
 }

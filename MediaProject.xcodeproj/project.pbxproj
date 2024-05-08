@@ -186,6 +186,50 @@
 			path = Credit;
 			sourceTree = "<group>";
 		};
+		2B4EFEDE2BEB5FBB003257F5 /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B8AC5E52B7BE17C0076D5E5 /* ImageModel.swift */,
+				2B4EFEDF2BEB5FE0003257F5 /* Details */,
+				2BDFD9B72B691669001EADFB /* TVShowModel.swift */,
+				2BDFD9B92B691683001EADFB /* PosterModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		2B4EFEDF2BEB5FE0003257F5 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				2BDFD9DF2B6A6025001EADFB /* DetailsModel.swift */,
+				2BDFD9E12B6A6033001EADFB /* RecommandModel.swift */,
+				2BDFD9E32B6A603D001EADFB /* CreditModel.swift */,
+				2BDFD9E52B6A6554001EADFB /* SearchModel.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		2B4EFEE02BEB607A003257F5 /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				2BDFD9DA2B6A597E001EADFB /* Main */,
+				2B1B81142B6F751A00A0B25F /* Find */,
+				2BDFD9DB2B6A59E3001EADFB /* Detail */,
+				2B1B811B2B7000CD00A0B25F /* Episode */,
+				2B9583392B792205000DA172 /* Profile */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		2B4EFEE12BEB6150003257F5 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2BDFD9BB2B69168F001EADFB /* TMDBManager.swift */,
+				2B1B81282B70D08300A0B25F /* TMDBSessionManager.swift */,
+				2B8AC5E12B7BDF390076D5E5 /* NaverImageAPIManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		2B9583392B792205000DA172 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,17 +264,13 @@
 		2BDFD98A2B6908F5001EADFB /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
-				2BDFD9E92B6A72F9001EADFB /* Base */,
+				2B4EFEE02BEB607A003257F5 /* Present */,
 				2BDFD9A32B690CA3001EADFB /* Network */,
 				2BDFD9A22B690C95001EADFB /* Model */,
 				2BDFD9A12B690C8D001EADFB /* CustomView */,
 				2BDFD9A02B690C87001EADFB /* Protocol */,
 				2BDFD99F2B690C7E001EADFB /* Extension */,
-				2BDFD9DA2B6A597E001EADFB /* Main */,
-				2B1B81142B6F751A00A0B25F /* Find */,
-				2BDFD9DB2B6A59E3001EADFB /* Detail */,
-				2B1B811B2B7000CD00A0B25F /* Episode */,
-				2B9583392B792205000DA172 /* Profile */,
+				2BDFD9E92B6A72F9001EADFB /* Base */,
 				2BDFD98D2B6908F5001EADFB /* SceneDelegate.swift */,
 				2BDFD98B2B6908F5001EADFB /* AppDelegate.swift */,
 				2BDFD9942B6908F6001EADFB /* Assets.xcassets */,
@@ -282,16 +322,11 @@
 		2BDFD9A32B690CA3001EADFB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2B4EFEE12BEB6150003257F5 /* Manager */,
+				2B4EFEDE2BEB5FBB003257F5 /* ResponseModel */,
 				2BDFD9B12B691614001EADFB /* APIKey.swift */,
 				2B4F88742B6BDAC500F6D590 /* TMDBAPI.swift */,
-				2BDFD9BB2B69168F001EADFB /* TMDBManager.swift */,
-				2B1B81282B70D08300A0B25F /* TMDBSessionManager.swift */,
-				2BDFD9B72B691669001EADFB /* TVShowModel.swift */,
-				2BDFD9B92B691683001EADFB /* PosterModel.swift */,
-				2BDFD9DE2B6A600D001EADFB /* Details */,
-				2B8AC5E12B7BDF390076D5E5 /* NaverImageAPIManager.swift */,
 				2B8AC5E32B7BDF4B0076D5E5 /* NaverAPI.swift */,
-				2B8AC5E52B7BE17C0076D5E5 /* ImageModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -318,17 +353,6 @@
 				2B1B81312B713CCC00A0B25F /* Credit */,
 			);
 			path = Detail;
-			sourceTree = "<group>";
-		};
-		2BDFD9DE2B6A600D001EADFB /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				2BDFD9DF2B6A6025001EADFB /* DetailsModel.swift */,
-				2BDFD9E12B6A6033001EADFB /* RecommandModel.swift */,
-				2BDFD9E32B6A603D001EADFB /* CreditModel.swift */,
-				2BDFD9E52B6A6554001EADFB /* SearchModel.swift */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		2BDFD9E92B6A72F9001EADFB /* Base */ = {
@@ -623,6 +647,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3BH6G5765B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MediaProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -636,7 +661,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seo.MediaProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seogyoungchoi.MediaProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -654,6 +679,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3BH6G5765B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MediaProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -667,7 +693,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seo.MediaProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seogyoungchoi.MediaProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

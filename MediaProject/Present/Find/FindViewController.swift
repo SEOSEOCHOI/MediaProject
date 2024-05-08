@@ -28,19 +28,13 @@ class FindViewController: BaseViewController {
     }
     
     func fetchData() {
-        let group = DispatchGroup()
-        group.enter()
-        TMDBManager.shared.request(type: SearchModel.self, api: .search(query: findTitle)) { searchData in
-            self.searchList = searchData.results
-            print("a:", searchData.results)
-            group.leave()
-        }
         
-        group.notify(queue: .main) {
+        Task {
+            let result = try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: SearchModel.self, api: .search(query: findTitle))
+            searchList = result.results
+            mainView.tableView.reloadData()
             
-            self.mainView.tableView.reloadData()
         }
-        
     }
 }
 
