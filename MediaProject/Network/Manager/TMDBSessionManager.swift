@@ -36,6 +36,23 @@ class TMDBSessionManager {
         return result
         
     }
+    
+    func fetchTMDBTaskGroup<T: Decodable>(type: T.Type, api: [TMDBAPI]) async throws -> [T] {
+        try await withThrowingTaskGroup(of: T.self) { group in
+            for item in api {
+                group.addTask {
+                    try await TMDBSessionManager.shared.fetchTMDBAsyncAwait(type: T.self, api: item) 
+                }
+            }
+            
+            var result: [T] = []
+            for try await item in group {
+                result.append(item)
+            }
+            
+            return result
+        }
+    }
 
     // Trending
     func fetchTrendingModel(completionHandelr: @escaping (TVShowModel?, SeSACError?) -> Void) {
