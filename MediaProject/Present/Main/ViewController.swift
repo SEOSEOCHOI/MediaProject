@@ -9,8 +9,6 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-
-// 📖 그런데 뷰를 따로 관리할 거면 현재 configureView, hierarchy 관련 메서드만 있으면... baseVC를 상속을 안 받아도 되는 건가???? ㅜ -> 현재는 그런 상황. 추가적으로 공통적 기능이 생길 시 받아도 됨.
 class ViewController: UIViewController {
 
     var TVShowList: [TVShowModel] = [
@@ -40,35 +38,6 @@ class ViewController: UIViewController {
 extension ViewController {
     func fetchTVShow() {
         let group = DispatchGroup()
-        
-        /*
-         
-         group.enter()
-         
-         TMDBManager.shared.request(type: TVShowModel.self, api: .trending) { tv in
-             self.TVShowList[0] = tv
-             group.leave()
-         }
-         /*
-          TMDBManager.shared.fetchTVShow(api: .trending) { tv in
-              self.TVShowList[0] = tv
-              group.leave()
-          }
-          */
-
-         group.enter()
-         TMDBManager.shared.request(type: TVShowModel.self, api: .popular) { tv in
-             self.TVShowList[1] = tv
-             group.leave()
-         }
-         
-         group.enter()
-
-         TMDBManager.shared.request(type: TVShowModel.self, api: .toprated) { tv in
-             self.TVShowList[2] = tv
-             group.leave()
-         }
-         */
 
         group.enter()
         TMDBSessionManager.shared.fetchTrendingModel { tv, error in
